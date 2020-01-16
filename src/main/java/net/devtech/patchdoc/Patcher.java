@@ -3,10 +3,7 @@ package net.devtech.patchdoc;
 import com.google.gson.Gson;
 import net.devtech.patchdoc.files.FileInfo;
 import net.devtech.patchdoc.gui.PatchGUI;
-import javax.swing.JFrame;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
-import javax.swing.WindowConstants;
+import javax.swing.*;
 import java.awt.Dimension;
 import java.io.File;
 import java.io.FileReader;
@@ -22,6 +19,9 @@ public class Patcher {
 
 	public static void main(String[] args) throws IOException, ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException {
 		UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		if(args.length == 0)
+			args = new String[]{"data.json", "patches"};
+
 		File fileData = new File(args[0]);
 		File root = new File(args[1]);
 		if (fileData.exists()) {
